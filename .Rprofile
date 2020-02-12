@@ -1,9 +1,10 @@
-options(stringsAsFactors = FALSE)
+# options(stringsAsFactors = FALSE)
 options(max.print = 100)
 options(scipen = 10)
 options(menu.graphics = FALSE)
 options(prompt = "> ")
 options(continue = "... ")
+
 options(width = 80)
 
 
@@ -14,8 +15,8 @@ utils::rc.settings(ipck = TRUE)
   if (interactive()) {
     library(utils)
     timestamp(,prefix = paste("##------ [",getwd(),"] ", sep = ""))
-    }
   }
+}
 
 .Last <- function(){
   if (interactive()) {
@@ -31,13 +32,13 @@ sshhh <- function(a.package){
     library(a.package, character.only = TRUE)))
 }
 
-auto.loads <- c("dplyr", "ggplot2", "stringr")
-
-if (interactive()) {
-  invisible(sapply(auto.loads, sshhh))
-}
-rm(auto.loads)
-rm(sshhh)
+# auto.loads <- c("dplyr", "ggplot2", "stringr")
+# 
+# if (interactive()) {
+#   invisible(sapply(auto.loads, sshhh))
+# }
+# rm(auto.loads)
+# rm(sshhh)
 
 
 
@@ -76,7 +77,7 @@ rm(sshhh)
 
 
 .env$.ls.objects <- function(pos = 1, pattern, order.by,
-                        decreasing = FALSE, head = FALSE, n = 5) {
+                             decreasing = FALSE, head = FALSE, n = 5) {
   napply <- function(names, fn) sapply(names, function(x)
     fn(get(x, pos = pos)))
   names <- ls(pos = pos, pattern = pattern)
