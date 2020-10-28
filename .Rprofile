@@ -4,11 +4,17 @@ options(scipen = 10)
 options(menu.graphics = FALSE)
 options(prompt = "> ")
 options(continue = "... ")
-
+options(useFancyQuotes = FALSE)
 options(width = 80)
+options(repos = c(CRAN = "https://cloud.r-project.org"))
 
 
+options(warnPartialMatchAttr = TRUE,
+        warnPartialMatchDollar = TRUE,
+        warn = 1,
+        warning.length = 8170)
 
+# Autocomplete package names
 utils::rc.settings(ipck = TRUE)
 
 .First <- function(){
